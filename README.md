@@ -1,4 +1,4 @@
-# Automated CoT Mini Project
+# Automated COT Prompting Project
 
 A beginner-friendly Python project that demonstrates an iterative LLM workflow using structured JSON responses.
 
