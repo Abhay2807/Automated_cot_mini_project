@@ -277,9 +277,10 @@ The objective is to ensure that the application behaves correctly, handles failu
 
 - Testing Samples
 
-![[Pasted image 20261114132300.png]]
+<img width="714" height="303" alt="image" src="https://github.com/user-attachments/assets/cb0c8354-e244-4671-9903-07b7f99dc50b" />
 
-![[Pasted image 20261114131512.png]]
+<img width="592" height="396" alt="image" src="https://github.com/user-attachments/assets/bbd63063-1276-460a-af4e-b21100404cf6" />
+
 
 
 
