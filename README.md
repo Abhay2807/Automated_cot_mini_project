@@ -181,6 +181,18 @@ The exact wording and number of planning iterations can vary because the model g
 
 ## 10. Code Output Samples
 
+- Direct-answer scenarios
+These should ideally return OUTPUT without executing a local tool.
+
+<img width="994" height="286" alt="image" src="https://github.com/user-attachments/assets/59a63eeb-e901-4526-89c2-8f2307830664" />
+
+- Tool execution scenarios
+These should ideally trigger an approved tool.
+
+<img width="1080" height="324" alt="image" src="https://github.com/user-attachments/assets/fbc8ae34-7b68-4b66-a7f8-b0f70455081b" />
+
+
+
 
 
 
