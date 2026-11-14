@@ -130,6 +130,7 @@ The model can request one of these actions:
 |---|---|
 | `count_words` | Counts words in the supplied text |
 | `uppercase_text` | Converts supplied text to uppercase |
+| `charcter_count` | Counts total no. of characters in the supplied text |
 | `none` | Does not execute a tool |
 
 The application checks the action against this allowlist in `safe_tools.py`.
@@ -176,6 +177,10 @@ The exact wording and number of planning iterations can vary because the model g
 - Parallel tool calls
 - Persistent conversation storage
 - Advanced retries and backoff
-- Production authentication and authorization
+- Production authentication and authorisation
+
+## 10. Code Output Samples
+
+
 
 
