@@ -1,6 +1,6 @@
-# Automated CoT Mini Project
+# Automated COT Prompting Project
 
-A beginner-friendly Python project that demonstrates an iterative LLM workflow using structured JSON responses.
+Python project that demonstrates an iterative LLM workflow using structured JSON responses.
 
 The application:
 1. Accepts a task from the user.
@@ -28,6 +28,11 @@ automated_cot_mini_project/
     ├── llm_client.py
     ├── planner.py
     └── safe_tools.py
+└── tests/
+    ├── __init__.py
+    ├── test_safe_tools.py
+    ├── test_planner.py
+    └── test_main.py
 ```
 
 ## 2. Concepts practised
@@ -130,7 +135,7 @@ The model can request one of these actions:
 |---|---|
 | `count_words` | Counts words in the supplied text |
 | `uppercase_text` | Converts supplied text to uppercase |
-| `charcter_count` | Counts total no. of characters in the supplied text |
+| `character_count` | Counts total no. of characters in the supplied text |
 | `none` | Does not execute a tool |
 
 The application checks the action against this allowlist in `safe_tools.py`.
@@ -190,6 +195,97 @@ These should ideally return OUTPUT without executing a local tool.
 These should ideally trigger an approved tool.
 
 <img width="1080" height="324" alt="image" src="https://github.com/user-attachments/assets/fbc8ae34-7b68-4b66-a7f8-b0f70455081b" />
+
+## 11. Testing
+
+This project includes automated unit tests using Python's built-in `unittest` framework. The tests validate individual components as well as the complete Automated CoT workflow.
+
+### Test Coverage
+
+The test suite is divided into three main areas:
+
+#### 1. Safe Tools (`tests/test_safe_tools.py`)
+
+Tests the predefined local functions and their execution safeguards.
+
+Coverage includes:
+- Word counting.
+- Uppercase text conversion.
+- Character counting.
+- Handling empty strings and multiple spaces.
+- Rejecting invalid input types.
+- Enforcing the maximum text length.
+- Rejecting unsupported tool actions.
+- Handling the `none` action without executing a tool.
+
+#### 2. Planner (`tests/test_planner.py`)
+
+Tests parsing and validation of structured JSON responses returned by the LLM.
+
+Coverage includes:
+- Valid `START`, `PLAN`, and `OUTPUT` responses.
+- Invalid JSON responses.
+- Rejecting responses that are not JSON objects.
+- Missing or invalid step values.
+- Missing or non-string content.
+- Unsupported tool actions.
+- Missing or invalid `tool_input` values.
+- Validation of all supported tool actions.
+
+#### 3. Main Workflow (`tests/test_main.py`)
+
+Tests the complete Automated CoT execution flow without making actual LLM API calls.
+
+Mocking is used to simulate API responses and local tool execution.
+
+Coverage includes:
+- Direct `OUTPUT` response without tool execution.
+- Complete `START → PLAN → OUTPUT` workflow.
+- Executing an approved local tool.
+- Passing the local tool result back to the LLM through conversation history.
+- Handling API exceptions.
+- Handling invalid JSON responses.
+- Enforcing the maximum iteration limit.
+- Rejecting invalid `MAX_ITERATIONS` configuration.
+- Rejecting zero iterations.
+- Preventing execution when the action is `none`.
+- Rejecting unsupported tool actions before execution.
+- Handling local tool execution errors.
+
+### Running the Tests
+
+Run all unit tests from the project root directory:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+To run individual test modules:
+
+```bash
+python -m unittest tests.test_safe_tools -v
+
+python -m unittest tests.test_planner -v
+
+python -m unittest tests.test_main -v
+```
+
+### Testing Approach
+
+- **Unit testing:** Each component is tested independently.
+- **Mocking:** External API calls and dependencies are replaced with mock objects to avoid actual API requests and charges.
+- **Positive testing:** Verifies that valid inputs produce expected results.
+- **Negative testing:** Verifies that invalid inputs and unsupported operations are handled safely.
+- **Workflow testing:** Validates the interaction between the planner, local tools, API responses, and iteration controller.
+
+The objective is to ensure that the application behaves correctly, handles failures gracefully, restricts tool execution to approved functions, and terminates within the configured iteration limit.
+
+- Testing Samples
+
+<img width="714" height="303" alt="image" src="https://github.com/user-attachments/assets/cb0c8354-e244-4671-9903-07b7f99dc50b" />
+
+<img width="592" height="396" alt="image" src="https://github.com/user-attachments/assets/bbd63063-1276-460a-af4e-b21100404cf6" />
+
 
 
 
