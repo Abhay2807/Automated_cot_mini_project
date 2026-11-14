@@ -1,6 +1,6 @@
 # Automated COT Prompting Project
 
-A beginner-friendly Python project that demonstrates an iterative LLM workflow using structured JSON responses.
+Python project that demonstrates an iterative LLM workflow using structured JSON responses.
 
 The application:
 1. Accepts a task from the user.
