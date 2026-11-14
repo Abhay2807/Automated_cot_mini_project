@@ -28,6 +28,11 @@ automated_cot_mini_project/
     ├── llm_client.py
     ├── planner.py
     └── safe_tools.py
+└── tests/
+    ├── __init__.py
+    ├── test_safe_tools.py
+    ├── test_planner.py
+    └── test_main.py
 ```
 
 ## 2. Concepts practised
@@ -130,7 +135,7 @@ The model can request one of these actions:
 |---|---|
 | `count_words` | Counts words in the supplied text |
 | `uppercase_text` | Converts supplied text to uppercase |
-| `charcter_count` | Counts total no. of characters in the supplied text |
+| `character_count` | Counts total no. of characters in the supplied text |
 | `none` | Does not execute a tool |
 
 The application checks the action against this allowlist in `safe_tools.py`.
