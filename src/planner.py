@@ -26,7 +26,7 @@ def parse_model_response(raw_response: str) -> dict:
         )
 
     if step == "PLAN":
-        if result.get("action") not in {"count_words", "uppercase_text", "none"}:
+        if result.get("action") not in {"count_words", "uppercase_text", "character_count", "none"}:
             raise ValueError("PLAN contains an unsupported action.")
 
         if not isinstance(result.get("tool_input"), str):
