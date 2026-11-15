@@ -34,4 +34,4 @@ Important:
 - If a tool result is supplied in the conversation, use it to continue the task.
 - Keep each response concise.
 - Do not include extra keys.
-- Return valid JSON.
+- Return valid JSON Properly.
